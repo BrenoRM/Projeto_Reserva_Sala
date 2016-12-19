@@ -46,14 +46,16 @@ angular.module("reservaSalas").controller("reservacontroller", function(reservas
 {
     this.nova_reserva = {};
 
-    this.listar_reservas = () => reservaservice.buscarreserva().then((ret) => 
+    this.listar_reservas = () => reservaservice.buscareservas().then((ret) => 
     {
         this.reservas = ret.data;
     });
 
+    this.listar_reservas();
+
     this.salvareserva = () =>
     {
-        reservaservice.salvarreserva(this.nova_reserva).then((ret) =>
+        reservaservice.salvareserva(this.nova_reserva).then((ret) =>
         {
             alert("Reserva salva com o ID " + ret.data.Id_reserva);
             this.listar_reservas();

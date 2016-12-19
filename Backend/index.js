@@ -72,8 +72,7 @@ app.post("/espaco", (req, res) =>
 app.post("/reserva", (req, res) =>
 {
     var nova_reserva = req.body;
-    knex("Reserva").insert(
-        {Id_Pessoa:nova_reserva.Id_Pessoa, Id_Espaco:nova_reserva.Id_Espaco},"Id_Reserva").then((ret) =>
+    knex("Reserva").insert(nova_reserva,"Id_Reserva").then((ret) =>
     {
         nova_reserva.Id_Reserva = ret[0];
         res.send(nova_reserva);

@@ -1,19 +1,19 @@
 <h1>Reservas</h1>
 <form ng-submit="ctl.salvareserva()">
   <fieldset>
-    <legend>Novo reserva</legend>
+    <legend>Nova reserva</legend>
     <label>Data</label>
-    <input type="date" ng-model="ctl.novo.Data_da_reserva" required/>
+    <input name="Data_da_reserva" type="date" ng-model="ctl.nova_reserva.Data_da_reserva" required/>
     <br/>
     <label>Sala</label>
-    <input ng-model="ctl.novo.Id_Espaco" required/>
+    <input name="Id_espaco" ng-model="ctl.nova_reserva.Id_Espaco" required/>
     <br/>
     <label>Reservante</label>
-    <input ng-model="ctl.novo.Id_Pessoa" required/>
+    <input name="Id_pessoa" ng-model="ctl.nova_reserva.Id_Pessoa" required/>
     <br/>
     <input type="submit"/>
   </fieldset>
 </form>
 <ul>
-  <li ng-repeat=" reserva in ctl.reserva">{{reserva.Data_da_reserva | date: "yyyy/MM/dd"}} {{reserva.Id_espaco}}  {{reserva.Id_pessoa}}</li>
+  <li ng-repeat="reservas in ctl.reservas">{{reservas.Id_reserva}} | {{reservas.Data_da_reserva}} | {{reservas.Id_espaco}} | {{reservas.Id_pessoa}}</li>
 </ul>
