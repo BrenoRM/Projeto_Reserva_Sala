@@ -62,25 +62,25 @@ angular.module("reservaSalas").controller("reservacontroller", function(reservas
     };
 });
 
-angular.modules("reservaSalas").config(($routeProvider) => 
+angular.module("reservaSalas").config(($routeProvider) => 
 {
     $routeProvider.when("/pessoas" , 
     {
-        controller:pessoacontroller,
-        templateUrl: "pessoas.html",
+        controller:"pessoacontroller",
+        templateUrl:"pessoas.html",
         controllerAs:"ctl"
     });
 
     $routeProvider.when("/espacos" , 
     {
-        controller:espacocontroller,
-        templateUrl: "espacos.html",
+        controller:"espacocontroller",
+        templateUrl:"espacos.html",
         controllerAs:"ctl"
     });
 
-    $routeProvider.when("/reservas" , 
+    $routeProvider.when("#/reservas" , 
     {
-        controllerAs:reservacontroller,
+        controller:"reservacontroller",
         templateUrl: "reservas.html",
         controllerAs:"ctl"
     });

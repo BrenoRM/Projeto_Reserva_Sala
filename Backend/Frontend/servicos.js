@@ -12,7 +12,7 @@ angular.module("reservaSalas").service("espacoservice", function($http)
     this.salvaespaco = (espaco) => $http.post("Espaco", espaco);
 });
 
-angular.module("reservaSalas").service(reservacontroler, function($http)
+angular.module("reservaSalas").service("reservaservice", function($http)
 {
     this.buscareservas = () => $http.get("reservas");
 
