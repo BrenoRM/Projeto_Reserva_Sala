@@ -78,7 +78,7 @@ angular.module("reservaSalas").config(($routeProvider) =>
         controllerAs:"ctl"
     });
 
-    $routeProvider.when("#/reservas" , 
+    $routeProvider.when("/reservas" , 
     {
         controller:"reservacontroller",
         templateUrl: "reservas.html",
