@@ -5,6 +5,7 @@ const express = require("express");
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(express.static("Frontend"))
 app.use(bodyParser.urlencoded({extended:true}));
 //Rotas GET
@@ -60,6 +61,7 @@ app.post("/pessoa", (req, res) =>
 app.post("/espaco", (req, res) =>
 {
     var novo_espaco = req.body;
+    console.log(req.body);
     knex("Espaco").insert(novo_espaco,"Id_Espaco").then((ret) =>
     {
         novo_espaco.Id_Espaco = ret[0];

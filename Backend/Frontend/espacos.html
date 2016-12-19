@@ -1,0 +1,16 @@
+<h1>Salas/Laboratórios</h1>
+<form ng-submit="ctl.salvaespaco()">
+    <fieldset>
+        <legend>Adicionar nova Sala/Laboratório</legend>
+        <label>Nome</label>
+        <input name="Nome" ng-model="ctl.novo_espaco.Nome" required/>
+        <br/>
+        <label>Descrição</label>
+        <input name="Descricao" ng-model="ctl.novo_espaco.Descricao" required/>
+        <br/>
+        <input type="submit"/>
+    </fieldset>
+</form>
+<ul>
+    <li ng-repeat="espacos in ctl.espacos"> {{espacos.Id_espaco}} | {{espacos.Nome}} | {{espacos.Descricao}} </li>
+</ul>

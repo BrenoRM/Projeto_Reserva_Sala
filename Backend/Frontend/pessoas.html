@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html
->
-    <head>Adicionar nova Pessoa</head>
-
-    <body>
-        <h1>Adicionar nova Pessoa</h1>
-        <h3>Entre com os dados necessários</h3>
-        <form action = "adicionar_pessoa" method="POST">
-            <label>Nome</label>
-            <input name = "nome"/><br/>
-            <input type="submit"/>
-        </form>
-    </body>
-</html>
+<h1>Usuários</h1>
+<form ng-submit="ctl.salvapessoa()">
+    <fieldset>
+        <legend>Adicionar novo Usuário</legend>
+        <label>Nome</label>
+        <input name="Nome" ng-model="ctl.nova_pessoa.Nome" required/>
+        <br/>
+        <input type="submit"/>
+    </fieldset>
+</form>
+<ul>
+    <li ng-repeat="pessoas in ctl.pessoas"> {{pessoas.Id_pessoa}} | {{pessoas.Nome}} </li>
+</ul>
