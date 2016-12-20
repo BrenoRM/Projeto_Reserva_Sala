@@ -13,7 +13,7 @@ angular.module("reservaSalas").controller("pessoacontroller", function(pessoaser
     {
         pessoaservice.salvapessoa(this.nova_pessoa).then((ret) =>
         {
-            alert("Pessoa salva com ID "+ret.data.Id_pessoa)
+            alert("Pessoa salva com ID " + ret.data.Id_Pessoa)
             this.listar_pessoas();
             this.nova_pessoa = {};
         });
@@ -35,7 +35,7 @@ angular.module("reservaSalas").controller("espacocontroller", function(espacoser
     {
         espacoservice.salvaespaco(this.novo_espaco).then((ret) =>
         {
-            alert("Espaco salvo com ID " + ret.data.Id_espaco);
+            alert("Espaco salvo com ID " + ret.data.Id_Espaco);
             this.listar_espacos();
             this.novo_espaco = {};
         });

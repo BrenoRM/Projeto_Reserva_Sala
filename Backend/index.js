@@ -63,7 +63,6 @@ app.post("/pessoa", (req, res) =>
 app.post("/espaco", (req, res) =>
 {
     var novo_espaco = req.body;
-    console.log(req.body);
     knex("Espaco").insert(novo_espaco,"Id_Espaco").then((ret) =>
     {
         novo_espaco.Id_Espaco = ret[0];
@@ -75,15 +74,20 @@ app.post("/espaco", (req, res) =>
 });
 app.post("/reserva", (req, res) =>
 {
-    var nova_reserva = req.body;
-    knex("Reserva").insert(nova_reserva,"Id_Reserva").then((ret) =>
+    knex("Espaco").select("Id_espaco").where("NomeE", "=", req.body.Id_Espaco).then((ret1) => 
     {
-        nova_reserva.Id_Reserva = ret[0];
-        res.send(nova_reserva);
-    }).catch((err) => 
-    {
-        res.status(500).send(err);
-    }); 
+        req.body.Id_Espaco = ret1[0].Id_espaco;
+        var nova_reserva = req.body;
+        knex("Reserva").insert(nova_reserva,"Id_Reserva").then((ret) =>
+        {
+            nova_reserva.Id_Reserva = ret[0];
+            res.send(nova_reserva);
+        }).catch((err) => 
+        {
+            res.status(500).send(err);
+        }); 
+    });
+    
 });
 
 app.listen(8080);
