@@ -25,7 +25,9 @@ app.get("/espacos" , (req, res) =>
 });
 app.get("/reservas" , (req, res) =>
 {
-    knex("Reserva").select().then((ret) =>
+    var retorno1;
+    knex("Reserva").select().innerJoin("Pessoa", "Pessoa.Id_pessoa", "=", "Reserva.Id_pessoa").
+    innerJoin("Espaco", "Espaco.Id_espaco", "=", "Reserva.Id_espaco").then((ret) =>
     {
         res.send(ret);
     });
@@ -39,7 +41,7 @@ app.get("/espaco/:Id_Espaco/pessoas", (req,res) =>
 });
 app.get("/pessoa/:Id_Pessoa/espacos", (req,res) =>
 {
-    knex.select("Espaco.Nome", "Reserva.Data_da_Reserva").from("Espaco").innerJoin("Reserva","Espaco.Id_espaco", "="
+    knex.select("Espaco.NomeE", "Reserva.Data_da_Reserva").from("Espaco").innerJoin("Reserva","Espaco.Id_espaco", "="
     , "Reserva.Id_espaco")
     .where(
         {Id_Pessoa:req.params.Id_Pessoa}).then((ret) => res.send(ret));

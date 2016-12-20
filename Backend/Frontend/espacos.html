@@ -3,7 +3,7 @@
     <fieldset>
         <legend>Adicionar nova Sala/Laboratório</legend>
         <label>Nome</label>
-        <input name="Nome" ng-model="ctl.novo_espaco.Nome" required/>
+        <input name="NomeE" ng-model="ctl.novo_espaco.Nome" required/>
         <br/>
         <label>Descrição</label>
         <input name="Descricao" ng-model="ctl.novo_espaco.Descricao" required/>
@@ -12,5 +12,5 @@
     </fieldset>
 </form>
 <ul>
-    <li ng-repeat="espacos in ctl.espacos"> {{espacos.Id_espaco}} | {{espacos.Nome}} | {{espacos.Descricao}} </li>
+    <li ng-repeat="espacos in ctl.espacos"> {{espacos.Id_espaco}} | {{espacos.NomeE}} | {{espacos.Descricao}} </li>
 </ul>
