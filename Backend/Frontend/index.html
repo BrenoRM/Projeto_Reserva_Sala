@@ -5,13 +5,25 @@
     <meta charset=UTF-8>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
 </head>
 <body>
-    <a href="#/pessoas">Pessoas</a> | <a href="#/espacos">Espaços</a> | <a href="#/reservas">Reservas</a><br/>
-    <div ng-view>
+    <div class="container-fluid">
+        <div class="row">
+            <ul class="nav nav-pills nav-justified">
+                <li role="presentation"><a href="#/pessoas">Pessoas</a></li>
+                <li role="presentation"><a href="#/espacos">Espaços</a></li>
+                <li role="presentation"><a href="#/reservas">Reservas</a></li>
+            </ul>
+        </div>
+        <div ng-view>
+        </div>
+        <script src="modulo.js"></script>
+        <script src="controllers.js"></script>
+        <script src="servicos.js"></script>
     </div>
-    <script src="modulo.js"></script>
-    <script src="controllers.js"></script>
-    <script src="servicos.js"></script>
 </body>
 </html>

@@ -1,19 +1,47 @@
-<h1>Reservas</h1>
+<div class="page-header" align="center">
+  <h1>Reservas</h1> <small>Crie e exclua reservas no sistema</small>
+</div>
 <form ng-submit="ctl.salvareserva()">
   <fieldset>
-    <legend>Nova reserva</legend>
-    <label>Data</label>
-    <input name="Data_da_reserva" type="datetime" ng-model="ctl.nova_reserva.Data_da_reserva" required/>
-    <br/>
-    <label>Sala</label>
-    <input name="Id_espaco" ng-model="ctl.nova_reserva.Id_Espaco" required/>
-    <br/>
-    <label>Reservante</label>
-    <input name="Id_pessoa" ng-model="ctl.nova_reserva.Id_Pessoa" required/>
-    <br/>
-    <input type="submit"/>
+    <div class="input-group">
+      <legend>Nova reserva</legend>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+        </div>
+        <input name="Data_da_reserva" class="form-control" type="datetime" placeholder="AAAA/MM/DD" ng-model="ctl.nova_reserva.Data_da_reserva" required/>
+      </div>
+      <br/>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+        </div>
+      <input name="Id_espaco" class="form-control" type="text"placeholder="Nome do Espaço. Ex:LMC3" ng-model="ctl.nova_reserva.Id_Espaco" required/>
+      </div>
+      <br/>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </div>
+      <input name="Id_pessoa" class="form-control" placeholder="ID do Reservante. Ex:1" type="text" ng-model="ctl.nova_reserva.Id_Pessoa" required/>
+      </div>
+      <br/>
+      <input type="submit" class="btn btn-primary btn-sm"/>
+    </div>
   </fieldset>
 </form>
-<ul>
-  <li ng-repeat="reservas in ctl.reservas">{{reservas.Id_reserva}} | {{reservas.Data_da_reserva}} | {{reservas.NomeE}} | {{reservas.Nome}}</li>
-</ul>
+</br>
+<table class="table table-striped" align="center">
+    <tr>
+        <th>Id da Reserva</th>
+        <th>Data da Reserva</th>
+        <th>Sala Reservada</th>
+        <th>Reservante</th>
+    </tr>
+    <tr ng-repeat="reservas in ctl.reservas">
+        <td>{{reservas.Id_reserva}}</td>
+        <td> {{reservas.Data_da_reserva}}</td>
+        <td>{{reservas.NomeE}}</td>
+        <td>{{reservas.Nome}}</td>
+    </tr>
+</table>

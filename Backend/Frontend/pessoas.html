@@ -1,13 +1,30 @@
-<h1>Usuários</h1>
+<div class="page-header" align="center">
+    <h1>Usuários</h1> <small>Crie e exclua os Usuários cadastrados no sistema</small>
+</div>
 <form ng-submit="ctl.salvapessoa()">
     <fieldset>
-        <legend>Adicionar novo Usuário</legend>
-        <label>Nome</label>
-        <input name="Nome" ng-model="ctl.nova_pessoa.Nome" required/>
-        <br/>
-        <input type="submit"/>
+        <div class="input-group">
+            <legend>Adicionar novo Usuário</legend>            
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Nome do Usuário" name="Nome" ng-model="ctl.nova_pessoa.Nome" required/>
+            </div>
+                <br/>
+                <input type="submit" class="btn btn-primary btn-sm"/>
+        </div>
     </fieldset>
 </form>
-<ul>
-    <li ng-repeat="pessoas in ctl.pessoas"> {{pessoas.Id_pessoa}} | {{pessoas.Nome}} </li>
-</ul>
+</br>
+<table class="table table-striped" align="center">
+    <tr>
+        <th>Id do Usuário</th>
+        <th>Nome</th>
+    </tr>
+    <tr ng-repeat="pessoas in ctl.pessoas">
+        <td>{{pessoas.Id_pessoa}}</td>
+        <td>{{pessoas.Nome}}</td>
+    </tr>
+</table>
+

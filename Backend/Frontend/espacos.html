@@ -1,16 +1,38 @@
-<h1>Salas/Laboratórios</h1>
+<div class="page-header" align="center">
+    <h1>Salas/Laboratórios</h1> <small> Crie e exclua as salas e laboratório cadastrados no Sistema</small>
+</div>
 <form ng-submit="ctl.salvaespaco()">
     <fieldset>
-        <legend>Adicionar nova Sala/Laboratório</legend>
-        <label>Nome</label>
-        <input name="NomeE" ng-model="ctl.novo_espaco.NomeE" required/>
-        <br/>
-        <label>Descrição</label>
-        <input name="Descricao" ng-model="ctl.novo_espaco.Descricao" required/>
-        <br/>
-        <input type="submit"/>
+        <div class="input-group">
+            <legend>Adicionar nova Sala/Laboratório</legend>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Nome da Sala" name="NomeE" ng-model="ctl.novo_espaco.NomeE" required/>
+            </div>
+            <br/>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Descrição" name="Descricao" ng-model="ctl.novo_espaco.Descricao" required/>
+            </div>
+            <br/>
+            <input type="submit" class="btn btn-primary btn-sm"/>
+        </div>
     </fieldset>
 </form>
-<ul>
-    <li ng-repeat="espacos in ctl.espacos"> {{espacos.Id_espaco}} | {{espacos.NomeE}} | {{espacos.Descricao}} </li>
-</ul>
+</br>
+<table class="table table-striped" align="center">
+    <tr>
+        <th>Id do Espaço</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+    </tr>
+    <tr ng-repeat="espacos in ctl.espacos">
+        <td>{{espacos.Id_espaco}}</td>
+        <td>{{espacos.NomeE}}</td>
+        <td>{{espacos.Descricao}}</td>
+    </tr>
+</table>
