@@ -1,37 +1,44 @@
 <div class="page-header" align="center">
   <h1>Reservas</h1> <small>Crie e exclua reservas no sistema</small>
 </div>
-<form ng-submit="ctl.salvareserva()">
-  <fieldset>
-    <div class="input-group">
-      <legend>Nova reserva</legend>
-      <div class="input-group">
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-        </div>
-        <input name="Data_da_reserva" class="form-control" type="datetime" placeholder="AAAA/MM/DD" ng-model="ctl.nova_reserva.Data_da_reserva" required/>
-      </div>
-      <br/>
-      <div class="input-group">
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-        </div>
-      <input name="Id_espaco" class="form-control" type="text"placeholder="Nome do Espaço. Ex:LMC3" ng-model="ctl.nova_reserva.Id_Espaco" required/>
-      </div>
-      <br/>
-      <div class="input-group">
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        </div>
-      <input name="Id_pessoa" class="form-control" placeholder="ID do Reservante. Ex:1" type="text" ng-model="ctl.nova_reserva.Id_Pessoa" required/>
-      </div>
-      <br/>
-      <input type="submit" class="btn btn-primary btn-sm"/>
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Nova Reserva</h3>
+          </div> 
+      </br>
+      <form ng-submit="ctl.salvareserva()">
+        <fieldset>
+          <div class="input-group">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              </div>
+              <input name="Data_da_reserva" class="form-control" type="datetime" placeholder="AAAA/MM/DD" ng-model="ctl.nova_reserva.Data_da_reserva" required/>
+            </div>
+            <br/>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+              </div>
+            <input name="Id_espaco" class="form-control" type="text" placeholder="Espaço Ex:LMC3" ng-model="ctl.nova_reserva.Id_Espaco" required/>
+            </div>
+            <br/>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              </div>
+            <input name="Id_pessoa" class="form-control" placeholder="ID do Usuário. Ex:1" type="text" ng-model="ctl.nova_reserva.Id_Pessoa" required/>
+            </div>
+            <br/>
+            <input type="submit" class="btn btn-primary btn-sm"/>
+          </div>
+        </fieldset>
+      </form>
     </div>
-  </fieldset>
-</form>
+</div>
 </br>
-<table class="table table-striped" align="center">
+<table class="table table-bordered" align="center">
     <tr>
         <th>Id da Reserva</th>
         <th>Data da Reserva</th>
